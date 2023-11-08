@@ -48,18 +48,12 @@ myGraph.addEdge('6', '5');
 
 myGraph.showConnections(); 
 
-function search(graph, startNode) {
+function knight(start, finish) {
+  const boardsize = 8;
+  const dx = [-2, -1, 1, 2, -2, -1, 1, 2];
+  const dy = [-1, -2, -2, -1, 1, 2, 2, 1];
   let queue = [];
-  let visited = [];
-
-  queue.push(startNode);
-  visited[startNode] = true;
-
-  while (queue.length > 0) {
-    let onde = queue.shift();
-
-    console.log(node)
-  }
+  
 }
 
 function isInsideBoard(x, y) {
