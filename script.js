@@ -57,12 +57,29 @@ function knight(start, finish) {
   let path = new Array(boardsize).fill(0).map(() => new Array(boardsize).fill(''));
 
   function isInsideBoard(x, y) {
-    return x >= 0 && x <= boardsize && y >= 0 && y <= boardsize;
+    return (x >= 0 && x < boardsize && y >= 0 && y < boardsize);
   }
 
   queue.push([start[0], start[1], 0]);
   path[start[0]][start[1]] = `(${start[0]},${start[1]})`;
 
-  
+  while (queue.length > 0) {
+    let t = queue.shift();
+    if (t[0] == finish[0] && t[1] == finish[1]) {
+      return path[t[0]][t[1]];
+    }
+
+    for (let i = 0; i < 8; i++) {
+      let x = t[0] + dx[i];
+      let y = t[1] + dy[i];
+
+      if (isInsideBoard(x, y) && !visited[x][y]) {
+        visited[x][y] = true;
+        path[x][y] = path[t[0]][t[1]] + ` -> (${x},${y})`;
+        queue.push([x, y, t[2] + 1]);
+      }
+    }
+  }
+  return 'No path found';
 }
 
