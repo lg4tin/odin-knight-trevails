@@ -48,33 +48,19 @@ myGraph.addEdge('6', '5');
 
 myGraph.showConnections(); 
 
-class ChessBoard {
-  constructor() {
-    this.board = this.createBoard();
-    this.knight = 'Knight';
-  }
+function search(graph, startNode) {
+  let queue = [];
+  let visited = [];
 
-  createBoard() {
-    let board = [];
-    for (let i = 0; i < 8; i++) {
-      board[i] = [];
-      for (let j = 0; j < 8; j++) {
-        board[i].push([i, j]);
-      }
-    }
-    return {board};
-  }
+  queue.push(startNode);
+  visited[startNode] = true;
 
-  getBoard(start) {
-    return this.board[3][3];
-  }
+  while (queue.length > 0) {
+    let onde = queue.shift();
 
-  knightMoves(start, end) {
-
+    console.log(node)
   }
 }
-
-const chessBoard1 = new ChessBoard()
 
 function isInsideBoard(x, y) {
   return x >= 0 && x <= 8 && y >= 0 && y <= 8;
