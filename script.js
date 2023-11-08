@@ -53,9 +53,16 @@ function knight(start, finish) {
   const dx = [-2, -1, 1, 2, -2, -1, 1, 2];
   const dy = [-1, -2, -2, -1, 1, 2, 2, 1];
   let queue = [];
+  let visited = new Array(boardsize).fill(0).map(() => new Array(boardsize).fill(false));
+  let path = new Array(boardsize).fill(0).map(() => new Array(boardsize).fill(''));
+
+  function isInsideBoard(x, y) {
+    return x >= 0 && x <= boardsize && y >= 0 && y <= boardsize;
+  }
+
+  queue.push([start[0], start[1], 0]);
+  path[start[0]][start[1]] = `(${start[0]},${start[1]})`;
+
   
 }
 
-function isInsideBoard(x, y) {
-  return x >= 0 && x <= 8 && y >= 0 && y <= 8;
-}
